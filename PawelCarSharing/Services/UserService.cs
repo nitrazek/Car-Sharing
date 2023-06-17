@@ -38,6 +38,7 @@ namespace PawelCarSharing.Services
                 existingUser.Password = user.Password;
                 existingUser.FirstName = user.FirstName;
                 existingUser.LastName = user.LastName;
+                existingUser.UserRole = user.UserRole;
                 // Update other user properties if needed
                 return existingUser;
             }

@@ -1,6 +1,6 @@
 ﻿namespace PawelCarSharing.Models
 {
-    public class CarRent
+    public class Rental
     {
         public int Id { get; set; }
         public int CarId { get; set; }

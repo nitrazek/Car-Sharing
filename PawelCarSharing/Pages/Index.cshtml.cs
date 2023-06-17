@@ -1,17 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace PawełCarSharing.Pages
+namespace PawelCarSharing.Pages
 {
     public class IndexModel : PageModel
     {
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            return RedirectToPage("login");
         }
     }
 }
-
-
-
-

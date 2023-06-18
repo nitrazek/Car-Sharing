@@ -1,65 +1,29 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Linq;
 using PawelCarSharing.Models;
+using PawelCarSharing.Repositories;
+using PawelCarSharing.Repositories.Interfaces;
 
 namespace PawelCarSharing.Services
 {
     public class CarService
     {
-        private readonly List<Car> _cars;
+        private ICarRepository _carRepository;
 
-        public CarService()
+        public CarService(ICarRepository carRepository)
         {
-            _cars = new List<Car>();
-        }
-
-        public IEnumerable<Car> GetCars()
-        {
-            return _cars;
+            _carRepository = carRepository;
         }
 
         public Car GetCarById(int id)
         {
-            return _cars.Find(car => car.Id == id);
+            return _carRepository.GetOne(id);
         }
 
-        public Car CreateCar(Car car)
+        public void CreateCar(Car car)
         {
-            car.Id = GenerateCarId();
-            _cars.Add(car);
-            return car;
-        }
-
-        public Car UpdateCar(int id, Car car)
-        {
-            var existingCar = _cars.Find(c => c.Id == id);
-            if (existingCar != null)
-            {
-                existingCar.Brand = car.Brand;
-                existingCar.Model = car.Model;
-                existingCar.RegistrationPlate = car.RegistrationPlate;
-                existingCar.ProductionYear = car.ProductionYear;
-                // Update other car properties if needed
-                return existingCar;
-            }
-            return null;
-        }
-
-        public Car DeleteCar(int id)
-        {
-            var car = _cars.Find(c => c.Id == id);
-            if (car != null)
-            {
-                _cars.Remove(car);
-                return car;
-            }
-            return null;
-        }
-
-        private int GenerateCarId()
-        {
-            // Generate a unique car ID based on your logic (e.g., auto-increment, GUID, etc.)
-            // This is just a sample implementation
-            return _cars.Count + 1;
+            car.Id = _carRepository.GetMaxId() + 1;
+            _carRepository.Add(car);
         }
     }
 }

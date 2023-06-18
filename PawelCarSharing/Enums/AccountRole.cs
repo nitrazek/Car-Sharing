@@ -1,6 +1,6 @@
 ﻿namespace PawelCarSharing.Enums
 {
-    public enum UserRole
+    public enum AccountRole
     {
         Administrator = 1,
         Worker = 2,

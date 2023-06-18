@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PawelCarSharing.Models;
+using PawelCarSharing.Repositories.Interfaces;
 using PawelCarSharing.Services;
 
 namespace PawelCarSharing.Controllers
@@ -8,14 +9,14 @@ namespace PawelCarSharing.Controllers
     [Route("api/[controller]")]
     public class RentalController : ControllerBase
     {
-        private readonly RentalService _rentalService;
+        private readonly IRentalRepository _rentalRepository;
 
-        public RentalController(RentalService rentalService)
+        public RentalController(IRentalRepository rentalRepository)
         {
-            _rentalService = rentalService;
+            _rentalRepository = rentalRepository;
         }
 
-        [HttpGet]
+        /*[HttpGet]
         public IActionResult GetRentals()
         {
             var rentals = _rentalService.GetRentals();
@@ -60,6 +61,6 @@ namespace PawelCarSharing.Controllers
                 return NotFound();
             }
             return Ok(deletedRental);
-        }
+        }*/
     }
 }

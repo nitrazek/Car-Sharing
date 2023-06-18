@@ -2,6 +2,8 @@
 using PawelCarSharing.Data;
 using PawelCarSharing.Models;
 using PawelCarSharing.Services;
+using PawelCarSharing.Repositories;
+using PawelCarSharing.Repositories.Interfaces;
 
 
 namespace PawelCarSharing.Controllers
@@ -10,18 +12,18 @@ namespace PawelCarSharing.Controllers
     [Route("api/[controller]")]
     public class CarController : ControllerBase
     {
-        private readonly CarService _carService;
+        private readonly ICarRepository _carRepository;
 
-        public CarController(CarService carService)
+        public CarController(ICarRepository carRepository)
         {
-            _carService = carService;
+            _carRepository = carRepository;
         }
 
-        // GET: api/Car
+        /*// GET: api/Car
         [HttpGet]
         public IActionResult GetCars()
         {
-            var cars = _carService.GetCars();
+            var cars = _carRepository.GetCars();
             return Ok(cars);
         }
 
@@ -29,7 +31,7 @@ namespace PawelCarSharing.Controllers
         [HttpGet("{id}")]
         public IActionResult GetCarById(int id)
         {
-            var car = _carService.GetCarById(id);
+            var car = _carRepository.GetCarById(id);
             if (car == null)
             {
                 return NotFound();
@@ -47,7 +49,7 @@ namespace PawelCarSharing.Controllers
             }
 
             // Dodaj samochód do bazy danych
-            var createdCar = _carService.CreateCar(car);
+            var createdCar = _carRepository.CreateCar(car);
 
             // Zwróć odpowiednią odpowiedź HTTP z informacją o utworzonym samochodzie
             return CreatedAtAction(nameof(GetCarById), new { id = createdCar.Id }, createdCar);
@@ -61,7 +63,7 @@ namespace PawelCarSharing.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var updatedCar = _carService.UpdateCar(id, car);
+            var updatedCar = _carRepository.UpdateCar(id, car);
             if (updatedCar == null)
             {
                 return NotFound();
@@ -73,12 +75,12 @@ namespace PawelCarSharing.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteCar(int id)
         {
-            var deletedCar = _carService.DeleteCar(id);
+            var deletedCar = _carRepository.DeleteCar(id);
             if (deletedCar == null)
             {
                 return NotFound();
             }
             return Ok(deletedCar);
-        }
+        }*/
     }
 }

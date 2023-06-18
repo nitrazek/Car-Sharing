@@ -15,7 +15,9 @@ var configuration = new ConfigurationBuilder()
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddScoped<IUserRepository, UserRespository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<ICarRepository, CarRepository>();
+builder.Services.AddScoped<IRentalRepository, RentalRepository>();
 
 // Add DbContext to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

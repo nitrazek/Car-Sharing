@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\UserController.cs" />
+    <Compile Remove="Enums\UserRole.cs" />
+    <Compile Remove="Models\User.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Controllers\NewFile.txt" />
     <None Remove="Services\NewFile.txt" />
   </ItemGroup>

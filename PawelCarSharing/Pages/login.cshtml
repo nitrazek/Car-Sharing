@@ -1,5 +1,5 @@
 ﻿@page
-@model PawelCarSharing.Pages.loginModel
+@model PawelCarSharing.Pages.LoginModel
 @{
     ViewData["Title"] = "Login page";
 }
@@ -10,14 +10,14 @@
 }
 
 <div class="d-flex justify-content-center align-items-center">
-    <form class="w-25">
+    <form class="w-25" method="post">
         <div class="form-group">
             <label for="username">Nazwa użytkownika:</label>
-            <input type="text" id="username" name="username" class="form-control" required>
+            <input type="text" id="username" name="username" class="form-control" asp-for="Username" required>
         </div>
         <div class="form-group">
             <label for="password">Hasło:</label>
-            <input type="password" id="password" name="password" class="form-control" required>
+            <input type="password" id="password" name="password" class="form-control" asp-for="Password" required>
         </div>
         <button type="submit" class="btn btn-primary mt-3">Zaloguj się</button>
     </form>

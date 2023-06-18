@@ -14,12 +14,12 @@ namespace PawelCarSharing.Services
             _accountRepository = accountRepository;
         }
 
-        public Account GetUserById(int id)
+        public Account GetAccountById(int id)
         {
             return _accountRepository.GetOne(id);
         }
 
-        public void CreateUser(Account account)
+        public void CreateAccount(Account account)
         {
             account.Id = _accountRepository.GetMaxId() + 1;
             _accountRepository.Add(account);

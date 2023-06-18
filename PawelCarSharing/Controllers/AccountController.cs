@@ -17,35 +17,6 @@ namespace PawelCarSharing.Controllers
             _accountRepository = accountService;
         }
 
-        /*[HttpGet]
-        public IActionResult GetUsers()
-        {
-
-            return Ok();
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetUserById(int id)
-        {
-            return Ok();
-        }
-
-        [HttpPost]
-        public IActionResult CreateUser(User user)
-        {
-            return Ok();
-        }
-
-        [HttpPut("{id}")]
-        public IActionResult UpdateUser(int id, User user)
-        {
-            return Ok();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteUser(int id)
-        {
-            return Ok();
-        }*/
+        
     }
 }

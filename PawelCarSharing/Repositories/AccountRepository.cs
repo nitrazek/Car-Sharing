@@ -25,6 +25,11 @@ namespace PawelCarSharing.Repositories
             return _dbContext.Accounts.Where(x => ids.Contains(x.Id)).ToList();
         }
 
+        public Account GetAccountByLoginAndPassword(string login, string password)
+        {
+            return _dbContext.Accounts.SingleOrDefault(x => x.Login == login && x.Password == password);
+        }
+
         public void Add(Account account)
         {
             _dbContext.Accounts.Add(account);

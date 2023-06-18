@@ -8,5 +8,6 @@ namespace PawelCarSharing.Repositories.Interfaces
         public void Add(Account account);
         public void Delete(int id);
         public int GetMaxId();
+        public Account GetAccountByLoginAndPassword(string login, string password);
     }
 }

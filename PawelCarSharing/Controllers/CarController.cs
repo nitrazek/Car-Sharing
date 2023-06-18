@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PawelCarSharing.DB.Entities;
 using PawelCarSharing.Models;
 using PawelCarSharing.Services;
 

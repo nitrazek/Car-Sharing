@@ -81,7 +81,7 @@ namespace PawelCarSharing.Migrations
                 IF @accountExists = 0
                 BEGIN
                     INSERT INTO [Account] ([Login], [Password], [FirstName], [LastName], [AccountRole], [IsDeleted])
-                    VALUES ('admin', '123', 'Pawel', 'Sharing', 1, 0);
+                    VALUES ('admin', '$2a$10$Pc0bCcSMSKtPleGkH7ThAODx7CFvXyrjTuzTdBj9giFujOKkrOEnm', 'Pawel', 'Sharing', 1, 0);
                 END
             ");
         }

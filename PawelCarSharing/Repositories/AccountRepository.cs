@@ -3,6 +3,7 @@ using PawelCarSharing.Models;
 using PawelCarSharing.Data;
 using System.Collections.Generic;
 using System.Linq;
+using BCryptNet = BCrypt.Net.BCrypt;
 
 namespace PawelCarSharing.Repositories
 {
@@ -27,7 +28,10 @@ namespace PawelCarSharing.Repositories
 
         public Account GetAccountByLoginAndPassword(string login, string password)
         {
-            return _dbContext.Accounts.SingleOrDefault(x => x.Login == login && x.Password == password);
+
+            Account account = _dbContext.Accounts.SingleOrDefault(x => x.Login == login);
+            if(account != null && BCryptNet.Verify(password, account.Password)) return account;
+            else return null;
         }
 
         public void Add(Account account)

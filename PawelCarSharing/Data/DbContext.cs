@@ -18,19 +18,16 @@ namespace PawelCarSharing.Data
 
             base.OnModelCreating(modelBuilder);
 
-            // Konfiguracja mapowania dla modelu Car
             modelBuilder.Entity<Car>()
                 .ToTable("Car");
             modelBuilder.Entity<Car>()
                 .HasKey(c => c.Id);
 
-            // Konfiguracja mapowania dla modelu Account
             modelBuilder.Entity<Account>()
                 .ToTable("Account");
             modelBuilder.Entity<Account>()
                 .HasKey(a => a.Id);
 
-            // Konfiguracja mapowania dla modelu Rental
             modelBuilder.Entity<Rental>()
                 .ToTable("Rental");
             modelBuilder.Entity<Rental>()

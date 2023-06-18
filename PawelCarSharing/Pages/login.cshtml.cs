@@ -29,10 +29,9 @@ namespace PawelCarSharing.Pages
 
         public IActionResult OnGet()
         {
-            // SprawdŸ, czy u¿ytkownik jest ju¿ uwierzytelniony
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Privacy");
             }
 
             return Page();
@@ -40,39 +39,30 @@ namespace PawelCarSharing.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            // SprawdŸ, czy u¿ytkownik o podanym username i password istnieje w bazie danych
             var user = _accountRepository.GetAccountByLoginAndPassword(Username, Password);
 
             if (user != null)
             {
-                // Utwórz listê claimów dla uwierzytelnienia u¿ytkownika
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Name, user.Login),
-                    // Dodaj inne claimy, jeœli s¹ wymagane
                 };
 
-                // Utwórz obiekt ClaimsIdentity z list¹ claimów
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-                // Uwierzytelnij u¿ytkownika i zapisz uwierzytelnione dane w ciasteczkach
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
 
                 return RedirectToPage("/Privacy");
             }
 
-            // Jeœli uwierzytelnianie nie powiod³o siê, przekieruj na stronê logowania
             ViewData["ErrorMessage"] = "Nieprawid³owe dane logowania.";
             return Page();
         }
 
         public async Task<IActionResult> OnGetLogoutAsync()
         {
-            // Wyloguj u¿ytkownika
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Privacy");
         }
     }
 }

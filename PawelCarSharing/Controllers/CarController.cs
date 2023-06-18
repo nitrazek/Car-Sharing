@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PawelCarSharing.Data;
 using PawelCarSharing.Models;
 using PawelCarSharing.Services;
+
 
 namespace PawelCarSharing.Controllers
 {
@@ -43,7 +45,11 @@ namespace PawelCarSharing.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            // Dodaj samochód do bazy danych
             var createdCar = _carService.CreateCar(car);
+
+            // Zwróć odpowiednią odpowiedź HTTP z informacją o utworzonym samochodzie
             return CreatedAtAction(nameof(GetCarById), new { id = createdCar.Id }, createdCar);
         }
 

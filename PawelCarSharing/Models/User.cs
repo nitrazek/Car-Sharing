@@ -11,5 +11,8 @@ namespace PawelCarSharing.Models
         public string LastName { get; set; }
 
         public UserRole UserRole { get; set; }
+
+        public bool IsDeleted { get; set; }
+
     }
 }

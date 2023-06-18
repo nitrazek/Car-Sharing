@@ -15,21 +15,31 @@ namespace PawelCarSharing.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            base.OnModelCreating(modelBuilder);
+
             // Konfiguracja mapowania dla modelu Car
+            modelBuilder.Entity<Car>()
+                .ToTable("Car");
             modelBuilder.Entity<Car>()
                 .HasKey(c => c.Id);
 
             // Konfiguracja mapowania dla modelu User
             modelBuilder.Entity<User>()
+                .ToTable("User");
+            modelBuilder.Entity<User>()
                 .HasKey(u => u.Id);
 
             // Konfiguracja mapowania dla modelu Rental
             modelBuilder.Entity<Rental>()
+                .ToTable("Rental");
+            modelBuilder.Entity<Rental>()
                 .HasKey(r => r.Id);
 
-            // Dodatkowe konfiguracje dla relacji lub właściwości
-
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Rental>()
+                .HasOne(x => x.Car)
+                .WithMany(x => x.Rentals)
+                .HasForeignKey(x => x.CarId);
         }
     }
 }

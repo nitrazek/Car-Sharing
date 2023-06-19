@@ -28,6 +28,20 @@ namespace PawelCarSharing.Repositories
         public void Add(Rental rental)
         {
             _dbContext.Rentals.Add(rental);
+            _dbContext.SaveChanges();
+        }
+
+        public void Update(Rental rental)
+        {
+            Rental existingrental = GetOne(rental.Id);
+            if (existingrental == null) return;
+
+            existingrental.CarId = rental.CarId;
+            existingrental.AccountId = rental.AccountId;
+            existingrental.StartDate = rental.StartDate;
+            existingrental.EndDate = rental.EndDate;
+            existingrental.Kilometers = rental.Kilometers;
+            _dbContext.SaveChanges();
         }
 
         public void Delete(int id)
@@ -37,6 +51,7 @@ namespace PawelCarSharing.Repositories
                 return;
 
             //tutaj wyjebać z bazy całkowicie ale idk jak
+            _dbContext.SaveChanges();
         }
 
         public int GetMaxId()

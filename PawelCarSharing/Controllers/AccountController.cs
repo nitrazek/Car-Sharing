@@ -15,8 +15,6 @@ namespace PawelCarSharing.Controllers
         public AccountController(IAccountRepository accountService)
         {
             _accountRepository = accountService;
-        }
-
-        
+        }   
     }
 }

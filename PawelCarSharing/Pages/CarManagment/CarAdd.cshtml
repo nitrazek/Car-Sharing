@@ -1,0 +1,51 @@
+﻿@page
+@model PawelCarSharing.Pages.CarManagment.CarAddModel
+@{
+}
+
+@if (ViewData["ErrorMessage"] != null)
+{
+	<p class="text-danger">@ViewData["ErrorMessage"]</p>
+}
+
+<h2>Nowy samochód</h2>
+<br />
+<br />
+<div class="container">
+	<form class="form-horizontal" method="post">
+		<div class="form-group">
+			<label asp-for="newCar.Brand" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input asp-for="newCar.Brand" class="form-control">
+				<span asp-validation-for="newCar.Brand" class="text-red"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="newCar.Model" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input asp-for="newCar.Model" class="form-control">
+				<span asp-validation-for="newCar.Model" class="text-red"></span>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label asp-for="newCar.RegistrationPlate" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input asp-for="newCar.RegistrationPlate" class="form-control">
+				<span asp-validation-for="newCar.RegistrationPlate" class="text-red"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="newCar.ProductionYear" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input asp-for="newCar.ProductionYear" class="form-control">
+				<span asp-validation-for="newCar.ProductionYear" class="text-red"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<br /><button class="btn btn btn-primary">Zatwierdź</button> <a asp-page="/CarManagment/CarList" class="btn btn-primary btn-large">Powrót</a>
+			</div>
+		</div>
+	</form>
+</div>

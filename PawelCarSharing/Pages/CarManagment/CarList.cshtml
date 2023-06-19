@@ -1,0 +1,55 @@
+﻿@page
+@model CarManagment.CarListModel
+@{
+	ViewData["Title"] = "Lista samochodów";
+}
+
+<h2>Lista samochodów</h2>
+<div class="row col-sm-12">
+	<a asp-page="/CarManagment/CarAdd" class="btn btn-primary btn-large">Dodaj samochód</a>
+</div>
+<br />
+<br />
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">
+				@Html.DisplayNameFor(model => 
+				Model.carList[0].Id)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.carList[0].Brand)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.carList[0].Model)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.carList[0].RegistrationPlate)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.carList[0].ProductionYear)
+			</th>
+			<th scope="col">Akcja</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var p in Model.carList)
+		{
+			<tr>
+				<th scope="row">@Html.DisplayFor(m => p.Id)</th>
+				<td>@Html.DisplayFor(m => p.Brand)</td>
+				<td>@Html.DisplayFor(m => p.Model)</td>
+				<td>@Html.DisplayFor(m => p.RegistrationPlate)</td>
+				<td>@Html.DisplayFor(m => p.ProductionYear)</td>
+				<td>
+					<a asp-page="/CarManagment/CarEdit" asp-route-id=@p.Id>Edytuj</a> |
+					<a asp-page="/CarManagment/CarDelete" asp-route-id=@p.Id>Usuń</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

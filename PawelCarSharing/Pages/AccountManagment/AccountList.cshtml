@@ -1,0 +1,56 @@
+﻿@page
+@model AccountManagment.AccountListModel
+@{
+	ViewData["Title"] = "Lista użytkowników";
+}
+
+<h2>Lista użytkowników</h2>
+<div class="row col-sm-12">
+	<a asp-page="/AccountManagment/AccountAdd" class="btn btn-primary btn-large">Dodaj użytkownika</a>
+</div>
+<br />
+<br />
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.accountList[0].Id)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.accountList[0].Login)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.accountList[0].FirstName)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.accountList[0].LastName)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.accountList[0].AccountRole)
+			</th>
+			<th scope="col">Akcja</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var p in Model.accountList)
+		{
+			<tr>
+				<th scope="row">@Html.DisplayFor(m => p.Id)</th>
+				<td>@Html.DisplayFor(m => p.Login)</td>
+				<td>@Html.DisplayFor(m => p.FirstName)</td>
+				<td>@Html.DisplayFor(m => p.LastName)</td>
+				<td>@Html.DisplayFor(m => p.AccountRole)</td>
+				<td>
+					<a asp-page="/AccountManagment/AccountEdit" asp-route-id=@p.Id>Edytuj</a> |
+					<a asp-page="/AccountManagment/AccountDelete" asp-route-id=@p.Id>Usuń</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+

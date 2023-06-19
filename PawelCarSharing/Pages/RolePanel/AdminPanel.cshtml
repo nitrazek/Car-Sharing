@@ -1,0 +1,16 @@
+﻿@page
+@model PawelCarSharing.Pages.AccountPanels.AdminPanelModel
+@{
+    ViewData["Title"] = "Panel administratora";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Witaj, @Model.Account.Login!</p><br />
+
+<p>Tutaj znajdują się dostępne opcje dla administratora:</p>
+
+<ul>
+    <li><a href="/AccountManagment/AccountList">Zarządzanie użytkownikami</a></li>
+    <li><a href="/CarManagment/CarList">Zarządzanie pojazdami</a></li>
+</ul>

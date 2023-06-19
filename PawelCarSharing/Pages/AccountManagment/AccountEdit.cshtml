@@ -1,0 +1,63 @@
+﻿@page
+@model PawelCarSharing.Pages.AccountPanels.AccountEditModel
+@{
+	var accountRoleList = Html.GetEnumSelectList<PawelCarSharing.Enums.AccountRole>();
+}
+
+@if (ViewData["ErrorMessage"] != null)
+{
+	<p class="text-danger">@ViewData["ErrorMessage"]</p>
+}
+
+<h2>Edytuj użytkownika</h2>
+<br />
+<br />
+<div class="container">
+	<form class="form-horizontal" method="post">
+		<div class="form-group">
+			<label asp-for="accountToEdit.Login" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input asp-for="accountToEdit.Login" class="form-control">
+				<span asp-validation-for="accountToEdit.Login" class="text-red"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="accountToEdit.Password" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input type="password" asp-for="accountToEdit.Password" class="form-control">
+				<span asp-validation-for="accountToEdit.Password" class="text-red"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm2">Powtórz hasło</label>
+			<div class="col-sm-6">
+				<input type="password" asp-for="passwordToCompare" class="form-control">
+				<span asp-validation-for="accountToEdit.Password" class="text-red"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="accountToEdit.FirstName" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input asp-for="accountToEdit.FirstName" class="form-control">
+				<span asp-validation-for="accountToEdit.FirstName" class="text-red"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="accountToEdit.LastName" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input asp-for="accountToEdit.LastName" class="form-control">
+				<span asp-validation-for="accountToEdit.LastName" class="text-red"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="accountToEdit.AccountRole" class="control-label col-sm2"></label>
+			<select asp-for="accountToEdit.AccountRole" asp-items="accountRoleList"></select>
+			<span asp-validation-for="accountToEdit.AccountRole" class="text-danger"></span><br /><br />
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<br /><button class="btn btn btn-primary">Zatwierdź</button> <a asp-page="/AccountManagment/AccountList" class="btn btn-primary btn-large">Powrót</a>
+			</div>
+		</div>
+	</form>
+</div>

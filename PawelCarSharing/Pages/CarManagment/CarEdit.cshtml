@@ -1,0 +1,51 @@
+﻿@page
+@model PawelCarSharing.Pages.CarManagment.CarEditModel
+@{
+}
+
+@if (ViewData["ErrorMessage"] != null)
+{
+	<p class="text-danger">@ViewData["ErrorMessage"]</p>
+}
+
+<h2>Edytuj samochód</h2>
+<br />
+<br />
+<div class="container">
+	<form class="form-horizontal" method="post">
+		<div class="form-group">
+			<label asp-for="carToEdit.Brand" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input asp-for="carToEdit.Brand" class="form-control">
+				<span asp-validation-for="carToEdit.Brand" class="text-red"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="carToEdit.Model" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input asp-for="carToEdit.Model" class="form-control">
+				<span asp-validation-for="carToEdit.Model" class="text-red"></span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label asp-for="carToEdit.RegistrationPlate" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input asp-for="carToEdit.RegistrationPlate" class="form-control">
+				<span asp-validation-for="carToEdit.RegistrationPlate" class="text-red"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="carToEdit.ProductionYear" class="control-label col-sm2"></label>
+			<div class="col-sm-6">
+				<input asp-for="carToEdit.ProductionYear" class="form-control">
+				<span asp-validation-for="carToEdit.ProductionYear" class="text-red"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<br /><button class="btn btn btn-primary">Zatwierdź</button> <a asp-page="/CarManagment/CarList" class="btn btn-primary btn-large">Powrót</a>
+			</div>
+		</div>
+	</form>
+</div>

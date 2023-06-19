@@ -20,10 +20,11 @@ namespace PawelCarSharing.Services
             return _carRepository.GetOne(id);
         }
 
-        public void CreateCar(Car car)
+        public Car CreateCar(Car car)
         {
             car.Id = _carRepository.GetMaxId() + 1;
             _carRepository.Add(car);
+            return car;
         }
     }
 }

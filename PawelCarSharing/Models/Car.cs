@@ -27,6 +27,6 @@ namespace PawelCarSharing.Models
 		public bool IsDeleted { get; set; }
 
         [Display(Name = "Lista wypożyczeń")]
-        public virtual ICollection<Rental> Rentals { get; set; }
+        public ICollection<Rental> Rentals { get; set; } = new List<Rental>();
     }
 }

@@ -1,0 +1,51 @@
+﻿@page
+@model PawelCarSharing.Pages.RentalManagment.RentalEditModel
+@{
+}
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <p class="text-danger">@ViewData["ErrorMessage"]</p>
+}
+
+<h2>Edytuj wynajem</h2>
+<br />
+<br />
+<div class="container">
+    <form class="form-horizontal" method="post">
+        <div class="form-group">
+            <label asp-for="rentalToEdit.StartDate" class="control-label col-sm2"></label>
+            <div class="col-sm-6">
+                <input asp-for="rentalToEdit.StartDate" class="form-control">
+                <span asp-validation-for="rentalToEdit.StartDate" class="text-red"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="rentalToEdit.EndDate" class="control-label col-sm2"></label>
+            <div class="col-sm-6">
+                <input asp-for="rentalToEdit.EndDate" class="form-control">
+                <span asp-validation-for="rentalToEdit.EndDate" class="text-red"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="rentalToEdit.Kilometers" class="control-label col-sm2"></label>
+            <div class="col-sm-6">
+                <input asp-for="rentalToEdit.Kilometers" class="form-control">
+                <span asp-validation-for="rentalToEdit.Kilometers" class="text-red"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="rentalToEdit.Car.Id" class="control-label col-sm2"></label>
+            <div class="col-sm-6">
+                <select asp-for="rentalToEdit.Car.Id" asp-items="@Model.cars" class="form-control"></select>
+                <span asp-validation-for="rentalToEdit.Car.Id" class="text-red"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <br /><button class="btn btn btn-primary">Zatwierdź</button> <a asp-page="/RentalManagment/RentalList" class="btn btn-primary btn-large">Powrót</a>
+            </div>
+        </div>
+    </form>
+</div>

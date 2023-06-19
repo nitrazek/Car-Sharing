@@ -57,6 +57,21 @@ namespace PawelCarSharing.Migrations
                     b.ToTable("Account", (string)null);
                 });
 
+            modelBuilder.Entity("PawelCarSharing.Models.AccountRental", b =>
+                {
+                    b.Property<int>("RentalId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RentalId", "AccountId");
+
+                    b.HasIndex("AccountId");
+
+                    b.ToTable("AccountRental", (string)null);
+                });
+
             modelBuilder.Entity("PawelCarSharing.Models.Car", b =>
                 {
                     b.Property<int>("Id")
@@ -96,9 +111,6 @@ namespace PawelCarSharing.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AccountId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CarId")
                         .HasColumnType("int");
 
@@ -118,6 +130,25 @@ namespace PawelCarSharing.Migrations
                     b.ToTable("Rental", (string)null);
                 });
 
+            modelBuilder.Entity("PawelCarSharing.Models.AccountRental", b =>
+                {
+                    b.HasOne("PawelCarSharing.Models.Account", "Account")
+                        .WithMany("Rentals")
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PawelCarSharing.Models.Rental", "Rental")
+                        .WithMany("Accounts")
+                        .HasForeignKey("RentalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+
+                    b.Navigation("Rental");
+                });
+
             modelBuilder.Entity("PawelCarSharing.Models.Rental", b =>
                 {
                     b.HasOne("PawelCarSharing.Models.Car", "Car")
@@ -129,9 +160,19 @@ namespace PawelCarSharing.Migrations
                     b.Navigation("Car");
                 });
 
+            modelBuilder.Entity("PawelCarSharing.Models.Account", b =>
+                {
+                    b.Navigation("Rentals");
+                });
+
             modelBuilder.Entity("PawelCarSharing.Models.Car", b =>
                 {
                     b.Navigation("Rentals");
+                });
+
+            modelBuilder.Entity("PawelCarSharing.Models.Rental", b =>
+                {
+                    b.Navigation("Accounts");
                 });
 #pragma warning restore 612, 618
         }

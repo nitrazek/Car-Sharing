@@ -31,5 +31,8 @@ namespace PawelCarSharing.Models
 
 		[Display(Name = "Czy usunięte")]
 		public bool IsDeleted { get; set; }
-    }
+
+		[Display(Name = "Lista wypożyczeń")]
+		public ICollection<AccountRental> Rentals { get; set; } = new List<AccountRental>();
+	}
 }

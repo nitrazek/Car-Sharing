@@ -1,4 +1,17 @@
 ﻿@page "{id}"
 @model PawelCarSharing.Pages.AccountPanels.WorkerPanelModel
 @{
+    ViewData["Title"] = "Panel pracownika";
 }
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Witaj, @Model.Account.Login!</p>
+<br />
+
+<p>Tutaj znajdują się dostępne opcje dla pracownika:</p>
+
+<ul>
+    <li><a href="/CarManagment/CarList">Zarządzanie pojazdami</a></li>
+    <li><a href="/RentalManagment/RentalList">Zarządzanie wynajmami</a></li>
+</ul>

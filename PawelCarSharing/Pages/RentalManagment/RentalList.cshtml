@@ -1,0 +1,60 @@
+﻿@page
+@model RentalManagment.RentalListModel
+@{
+	ViewData["Title"] = "Lista wypożyczeń";
+}
+
+<h2>Lista wypożyczeń</h2>
+<div class="row col-sm-12">
+	<a asp-page="/RentalManagment/RentalAdd" class="btn btn-primary btn-large">Dodaj wypożyczenie</a>
+</div>
+<br />
+<br />
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">
+				@Html.DisplayNameFor(model => 
+				Model.rentalList[0].Id)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.rentalList[0].StartDate)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.rentalList[0].EndDate)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.rentalList[0].Kilometers)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.rentalList[0].CarId)
+			</th>
+			<th scope="col">
+				@Html.DisplayNameFor(model =>
+				Model.rentalList[0].Accounts)
+			</th>
+			<th scope="col">Akcja</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var p in Model.rentalList)
+		{
+			<tr>
+				<th scope="row">@Html.DisplayFor(m => p.Id)</th>
+				<td>@Html.DisplayFor(m => p.StartDate)</td>
+				<td>@Html.DisplayFor(m => p.EndDate)</td>
+				<td>@Html.DisplayFor(m => p.Kilometers)</td>
+				<td>@Html.DisplayFor(m => p.CarId)</td>
+				<td>@Html.DisplayFor(m => p.Accounts.Count)</td>
+				<td>
+					<a asp-page="/RentalManagment/RentalEdit" asp-route-id=@p.Id>Edytuj</a> |
+					<a asp-page="/RentalManagment/RentalDelete" asp-route-id=@p.Id>Usuń</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

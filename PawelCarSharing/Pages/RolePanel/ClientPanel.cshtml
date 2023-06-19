@@ -1,4 +1,16 @@
 ﻿@page
 @model PawelCarSharing.Pages.AccountPanels.ClientPanelModel
 @{
+    ViewData["Title"] = "Panel klienta";
 }
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Witaj, @Model.Account.Login!</p>
+<br />
+
+<p>Tutaj znajdują się dostępne opcje dla kilenta:</p>
+
+<ul>
+    <li><a href="/RentalManagment/RentalList">Zarządzanie wynajmami</a></li>
+</ul>

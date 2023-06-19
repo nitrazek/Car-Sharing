@@ -20,6 +20,11 @@ namespace PawelCarSharing.Repositories
             return _dbContext.Rentals.SingleOrDefault(x => x.Id == id);
         }
 
+        public List<Rental> GetAll()
+        {
+            return _dbContext.Rentals.ToList();
+        }
+
         public List<Rental> GetAllByIds(List<int> ids)
         {
             return _dbContext.Rentals.Where(x => ids.Contains(x.Id)).ToList();
@@ -36,11 +41,8 @@ namespace PawelCarSharing.Repositories
             Rental existingrental = GetOne(rental.Id);
             if (existingrental == null) return;
 
-            existingrental.CarId = rental.CarId;
-            existingrental.AccountId = rental.AccountId;
-            existingrental.StartDate = rental.StartDate;
-            existingrental.EndDate = rental.EndDate;
-            existingrental.Kilometers = rental.Kilometers;
+            //Update
+
             _dbContext.SaveChanges();
         }
 
@@ -50,7 +52,7 @@ namespace PawelCarSharing.Repositories
             if (rentalToDelete == null)
                 return;
 
-            //tutaj wyjebać z bazy całkowicie ale idk jak
+            _dbContext.Rentals.Remove(rentalToDelete);
             _dbContext.SaveChanges();
         }
 

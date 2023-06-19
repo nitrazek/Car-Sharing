@@ -33,10 +33,25 @@ namespace PawelCarSharing.Data
             modelBuilder.Entity<Rental>()
                 .HasKey(r => r.Id);
 
+            modelBuilder.Entity<AccountRental>()
+                .ToTable("AccountRental");
+            modelBuilder.Entity<AccountRental>()
+                .HasKey(ra => new { ra.RentalId, ra.AccountId });
+
+            modelBuilder.Entity<AccountRental>()
+                .HasOne(ra => ra.Rental)
+                .WithMany(r => r.Accounts)
+                .HasForeignKey(ra => ra.RentalId);
+
+            modelBuilder.Entity<AccountRental>()
+                .HasOne(ra => ra.Account)
+                .WithMany(a => a.Rentals)
+                .HasForeignKey(ra => ra.AccountId);
+
             modelBuilder.Entity<Rental>()
-                .HasOne(x => x.Car)
-                .WithMany(x => x.Rentals)
-                .HasForeignKey(x => x.CarId);
+                .HasOne(r => r.Car)
+                .WithMany(c => c.Rentals)
+                .HasForeignKey(r => r.CarId);
         }
     }
 }

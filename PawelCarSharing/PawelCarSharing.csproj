@@ -26,8 +26,4 @@
 	</PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\RentalManagment\" />
-  </ItemGroup>
-
 </Project>

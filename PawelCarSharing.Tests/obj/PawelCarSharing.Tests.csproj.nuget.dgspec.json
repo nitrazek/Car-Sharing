@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "A:\\GitHub\\DotNet-Projekt\\PawelCarSharing.Tests\\PawelCarSharing.Tests.csproj": {}
+    "C:\\Users\\pawel\\Desktop\\GitHub\\DotNet-Projekt\\PawelCarSharing.Tests\\PawelCarSharing.Tests.csproj": {}
   },
   "projects": {
-    "A:\\GitHub\\DotNet-Projekt\\PawelCarSharing.Tests\\PawelCarSharing.Tests.csproj": {
+    "C:\\Users\\pawel\\Desktop\\GitHub\\DotNet-Projekt\\PawelCarSharing.Tests\\PawelCarSharing.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\GitHub\\DotNet-Projekt\\PawelCarSharing.Tests\\PawelCarSharing.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\pawel\\Desktop\\GitHub\\DotNet-Projekt\\PawelCarSharing.Tests\\PawelCarSharing.Tests.csproj",
         "projectName": "PawelCarSharing.Tests",
-        "projectPath": "A:\\GitHub\\DotNet-Projekt\\PawelCarSharing.Tests\\PawelCarSharing.Tests.csproj",
+        "projectPath": "C:\\Users\\pawel\\Desktop\\GitHub\\DotNet-Projekt\\PawelCarSharing.Tests\\PawelCarSharing.Tests.csproj",
         "packagesPath": "C:\\Users\\pawel\\.nuget\\packages\\",
-        "outputPath": "A:\\GitHub\\DotNet-Projekt\\PawelCarSharing.Tests\\obj\\",
+        "outputPath": "C:\\Users\\pawel\\Desktop\\GitHub\\DotNet-Projekt\\PawelCarSharing.Tests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\pawel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "A:\\GitHub\\DotNet-Projekt\\PawelCarSharing\\PawelCarSharing.csproj": {
-                "projectPath": "A:\\GitHub\\DotNet-Projekt\\PawelCarSharing\\PawelCarSharing.csproj"
+              "C:\\Users\\pawel\\Desktop\\GitHub\\DotNet-Projekt\\PawelCarSharing\\PawelCarSharing.csproj": {
+                "projectPath": "C:\\Users\\pawel\\Desktop\\GitHub\\DotNet-Projekt\\PawelCarSharing\\PawelCarSharing.csproj"
               }
             }
           }
@@ -67,6 +71,10 @@
             "coverlet.collector": {
               "target": "Package",
               "version": "[3.2.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2, )"
             }
           },
           "imports": [
@@ -85,21 +93,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "A:\\GitHub\\DotNet-Projekt\\PawelCarSharing\\PawelCarSharing.csproj": {
+    "C:\\Users\\pawel\\Desktop\\GitHub\\DotNet-Projekt\\PawelCarSharing\\PawelCarSharing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\GitHub\\DotNet-Projekt\\PawelCarSharing\\PawelCarSharing.csproj",
+        "projectUniqueName": "C:\\Users\\pawel\\Desktop\\GitHub\\DotNet-Projekt\\PawelCarSharing\\PawelCarSharing.csproj",
         "projectName": "PawelCarSharing",
-        "projectPath": "A:\\GitHub\\DotNet-Projekt\\PawelCarSharing\\PawelCarSharing.csproj",
+        "projectPath": "C:\\Users\\pawel\\Desktop\\GitHub\\DotNet-Projekt\\PawelCarSharing\\PawelCarSharing.csproj",
         "packagesPath": "C:\\Users\\pawel\\.nuget\\packages\\",
-        "outputPath": "A:\\GitHub\\DotNet-Projekt\\PawelCarSharing\\obj\\",
+        "outputPath": "C:\\Users\\pawel\\Desktop\\GitHub\\DotNet-Projekt\\PawelCarSharing\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\pawel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -107,6 +119,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -159,7 +172,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

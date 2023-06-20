@@ -4,6 +4,7 @@ using PawelCarSharing.Repositories;
 using PawelCarSharing.Models;
 using PawelCarSharing.Data;
 using System.Linq;
+using Xunit;
 
 namespace PawelCarSharing.Tests.Repositories
 {
@@ -24,7 +25,7 @@ namespace PawelCarSharing.Tests.Repositories
             };
 
             //var rentalsDbSetMock = rentals.AsQueryable().BuildMockDbSet();
-            dbContextMock.Setup(db => db.Rentals).Returns(rentalsDbSetMock.Object);
+            //dbContextMock.Setup(db => db.Rentals).Returns(rentalsDbSetMock.Object);
 
             // Act
             var result = rentalRepository.GetAll();

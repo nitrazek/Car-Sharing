@@ -12,7 +12,7 @@ using PawelCarSharing.Data;
 namespace PawelCarSharing.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230619211316_Init")]
+    [Migration("20230620111113_Init")]
     partial class Init
     {
         /// <inheritdoc />
